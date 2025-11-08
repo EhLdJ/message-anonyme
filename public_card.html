@@ -1,0 +1,53 @@
+<!doctype html><html><head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Envoyer un message — Prototype</title>
+    <link rel="stylesheet" href="css/style.css">
+    </head><body>
+      <div class="container center">
+        <div style="max-width:760px">
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center">
+              <div>
+                <h3>/u/tonpseudo</h3>
+                <div class="small">Envoie un message anonyme</div>
+              </div>
+              <div class="tag">Public card</div>
+            </div>
+    
+            <div style="margin-top:12px">
+              <div class="preview" style="background:linear-gradient(90deg,#5b6cff,#8b9bff); color:white;">Salut — envoie-moi un message anonymement !</div>
+            </div>
+    
+            <form id="anon_form" style="margin-top:12px">
+              <label>Ton message<textarea id="anon_text" class="input" rows="5" placeholder="Écris ton message ici..."></textarea></label>
+              <label class="small" style="margin-top:8px"><input type="checkbox" id="with_pseudo"> Créer un pseudo pour discuter plus tard</label>
+    
+              <div style="display:flex; gap:8px; margin-top:12px">
+                <button type="button" class="btn" id="send_anon">Envoyer anonymement</button>
+                <button type="button" class="btn" style="background:#6b7280" id="preview_anon">Aperçu image</button>
+              </div>
+            </form>
+    
+            <div id="result" style="margin-top:12px; display:none" class="small card">
+              <div id="result_msg">Merci — message envoyé.</div>
+              <div style="margin-top:8px">Si tu as coché pseudo: <code>pseudo_ABC123</code> — conservez-le pour poursuivre la conversation.</div>
+            </div>
+          </div>
+    
+          <div class="small" style="margin-top:12px">Note: prototype statique — en réel, le serveur génère et stocke l'image + message en DB.</div>
+        </div>
+      </div>
+    
+      <script>
+        document.getElementById('send_anon').addEventListener('click', ()=>{
+          // simulate submit -> show thanks and pseudo if asked
+          const withPseudo = document.getElementById('with_pseudo').checked;
+          const r = document.getElementById('result'); r.style.display='block';
+          document.getElementById('result_msg').innerText = withPseudo ? 'Envoyé — pseudo: pseudo_'+Math.random().toString(36).slice(2,8) : 'Envoyé anonymement';
+        });
+        document.getElementById('preview_anon').addEventListener('click', ()=>{
+          alert('Prototype: le serveur convertirait le message en image (PNG) et la stockerait.');
+        });
+      </script>
+    </body></html>
+    

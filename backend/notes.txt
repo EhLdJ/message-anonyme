@@ -1,0 +1,47 @@
+Points d'amélioration & production hardening
+
+Modération / sécurité
+
+Remplacer la fonction contains_bad_words par un service de modération (Perspective API, OpenAI content filter, etc.) ou une liste robuste.
+
+Activer reCAPTCHA/hCaptcha côté public.
+
+Limiter taille des messages, empêcher injection JSON.
+
+Purger périodiquement les anciens fichiers/images et événements (cron).
+
+Performance
+
+Pré-générer et mettre en cache miniatures.
+
+Déporter images sur S3/Cloud Storage + CDN.
+
+Notifications
+
+Ajouter WebSocket (Ratchet) ou service Pusher/Ably pour notifs in-app.
+
+Envoyer mail via SMTP / service (Mailgun, SendGrid) si utilisateur veut e-mail notif.
+
+Logging & audit
+
+Journaliser actions admin et suppression.
+
+RGPD / privacy
+
+Hacher ou anonymiser IP (stocke ip_hash comme montré) et proposer suppression complète de données.
+
+7) Checklist rapide avant mise en prod
+
+ .env sécurisé
+
+ HTTPS + HSTS
+
+ Imagick installé & testé (ou GD bien configuré)
+
+ Uploads dossier sécurisé (pas d’exécution de fichiers)
+
+ Rate-limiting & captcha
+
+ Tests unitaires / integration tests
+
+ Backups DB & stratégie purge images

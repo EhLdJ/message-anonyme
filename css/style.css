@@ -1,0 +1,61 @@
+:root{
+    --bg:#f6f7fb; --card:#ffffff; --primary:#5b6cff; --muted:#7b7f93;
+    --glass: rgba(255,255,255,0.6);
+    --radius:14px;
+    --maxw:1000px;
+    --pad:18px;
+    font-family: Inter, system-ui, Arial, sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{
+    background: linear-gradient(180deg,#f3f5ff 0%, #f6f7fb 100%);
+    margin:0; color:#222;
+    -webkit-font-smoothing:antialiased;
+  }
+  .container{
+    max-width:var(--maxw); margin:28px auto; padding:0 16px;
+  }
+  .header{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:20px;
+  }
+  .brand{display:flex; gap:12px; align-items:center}
+  .logo{
+    width:44px; height:44px; border-radius:10px; background:var(--primary);
+    color:#fff; display:grid; place-items:center; font-weight:700;
+  }
+  .nav a{ color:var(--muted); margin-left:14px; text-decoration:none }
+  .card{
+    background:var(--card); border-radius:var(--radius); padding:var(--pad);
+    box-shadow: 0 6px 18px rgba(31,41,55,0.06);
+  }
+  .grid{
+    display:grid; grid-template-columns: 1fr 360px; gap:20px;
+  }
+  .center{display:grid; place-items:center; min-height:60vh}
+  .btn{
+    background:var(--primary); color:white; padding:10px 14px; border-radius:10px;
+    border:0; cursor:pointer; font-weight:600;
+  }
+  .input, textarea, select{
+    width:100%; padding:10px 12px; border-radius:8px; border:1px solid #e7e9f0;
+    margin-top:8px; font-size:14px; background:white;
+  }
+  .small{font-size:13px; color:var(--muted)}
+  .palette{
+    display:flex; gap:8px; margin-top:10px;
+  }
+  .swatch{ width:40px; height:40px; border-radius:8px; cursor:pointer; border:2px solid transparent}
+  .swatch.selected{ outline:3px solid rgba(0,0,0,0.06); transform:scale(1.03)}
+  .preview{
+    width:100%; height:300px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    color:white; font-size:20px; padding:18px; text-align:center;
+  }
+  .card-list{ display:flex; gap:12px; flex-direction:column }
+  .message-row{ display:flex; gap:12px; align-items:center; padding:10px; border-radius:10px; cursor:pointer }
+  .message-row.unread{ background: linear-gradient(90deg, rgba(91,108,255,0.06), rgba(91,108,255,0.02)) }
+  .meta{ color:var(--muted); font-size:13px }
+  .actions{ display:flex; gap:8px }
+  .tag{ padding:6px 8px; background:#f2f4ff; border-radius:8px; font-weight:600; color:var(--primary) }
+  .footer{ margin-top:32px; text-align:center; color:var(--muted); font-size:13px }
+  

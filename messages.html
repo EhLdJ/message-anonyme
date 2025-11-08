@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+    <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Messages — Message Anonyme</title>
+    <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+            <div class="brand"><div class="logo">MA</div><div><h3>Boîte de réception</h3><div class="small">Messages anonymes reçus</div></div></div>
+            <div><a href="dashboard.html" class="small">Retour</a></div>
+            </div>
+        
+            <div class="grid">
+            <div class="card">
+                <div style="display:flex; justify-content:space-between; align-items:center">
+                <h4>Messages</h4>
+                <div class="small">Filtrer: <select class="input" style="width:160px"><option>Tous</option><option>Non lus</option><option>Répondu</option></select></div>
+                </div>
+        
+                <div style="margin-top:12px" class="card-list">
+                <div class="message-row unread" onclick="openMessage(1)">
+                    <div style="flex:1">
+                    <div style="display:flex; justify-content:space-between">
+                        <div><strong>Message #1</strong></div>
+                        <div class="meta">Il y a 2h</div>
+                    </div>
+                    <div class="small">Aperçu : J'aime beaucoup ton travail — as-tu …</div>
+                    </div>
+                    <div class="actions"><div class="tag">Non lu</div></div>
+                </div>
+        
+                <div class="message-row" onclick="openMessage(2)">
+                    <div style="flex:1">
+                    <div style="display:flex; justify-content:space-between">
+                        <div><strong>Message #2</strong></div>
+                        <div class="meta">Il y a 1 jour</div>
+                    </div>
+                    <div class="small">Aperçu : Bravo pour la photo !</div>
+                    </div>
+                    <div class="actions"><div class="small">Répondu</div></div>
+                </div>
+                </div>
+            </div>
+        
+            <div class="card" id="message_view">
+                <div id="placeholder">
+                <h4>Aucun message sélectionné</h4>
+                <div class="small">Clique sur un message à gauche pour le lire et répondre.</div>
+                </div>
+        
+                <div id="message_open" style="display:none">
+                <div style="display:flex; justify-content:space-between">
+                    <div><strong>Message #1</strong><div class="small">pseudo: anon_x5 — il y a 2h</div></div>
+                    <div class="meta">Status: <span id="status_tag" class="tag">Non lu</span></div>
+                </div>
+                <div style="margin-top:12px"><img src="css/../placeholder.png" alt="" style="width:100%; border-radius:10px; max-height:300px; object-fit:cover"></div>
+                <div style="margin-top:12px">
+                    <button class="btn" onclick="replySocial()">Répondre via réseau</button>
+                    <button class="btn" style="background:#6b7280" onclick="markReplied()">Marquer comme répondu</button>
+                    <button class="btn" style="background:#ef4444" onclick="report()">Signaler</button>
+                </div>
+        
+                <div style="margin-top:12px">
+                    <h4>Conversation anonyme</h4>
+                    <div class="small">Commence une discussion anonyme (pseudo: <code>anon_x5</code>)</div>
+                    <div style="margin-top:8px">
+                    <textarea id="conv_text" class="input" rows="3" placeholder="Écrire un message..."></textarea>
+                    <div style="margin-top:8px; display:flex; gap:8px">
+                        <button class="btn" onclick="sendConv()">Envoyer</button>
+                        <button class="btn" style="background:#6b7280" onclick="reveal()">Révéler identité (expéditeur)</button>
+                    </div>
+                    </div>
+                    <div id="conv_area" style="margin-top:12px"></div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        <script>
+        function openMessage(id){
+        document.getElementById('placeholder').style.display='none';
+        document.getElementById('message_open').style.display='block';
+        }
+        function replySocial(){
+        alert('Prototype: générer image + rediriger vers l\'app de réseau social (ou télécharger l\'image).');
+        }
+        function markReplied(){
+        document.getElementById('status_tag').innerText='Répondu';
+        document.getElementById('status_tag').style.background='#eef2ff';
+        }
+        function sendConv(){
+        const t = document.getElementById('conv_text').value;
+        if(!t) return alert('Écris un message');
+        const area = document.getElementById('conv_area');
+        const el = document.createElement('div');
+        el.className='card small'; el.style.marginTop='8px'; el.innerText = 'To anon_x5: '+t;
+        area.prepend(el);
+        document.getElementById('conv_text').value='';
+        }
+        function report(){ alert('Signaler envoyé (admin review)'); }
+        function reveal(){ if(confirm('L\'expéditeur accepte-t-il de révéler son identité? (simulé)')) alert('Identité révélée (dans vrai système: demander consentement et vérifier).'); }
+        </script>
+    </body>
+</html>
+    

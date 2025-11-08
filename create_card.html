@@ -1,0 +1,61 @@
+<!doctype html><html><head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Créer ma carte — Message Anonyme</title>
+    <link rel="stylesheet" href="css/style.css">
+    </head><body>
+      <div class="container">
+        <div class="header">
+          <div class="brand"><div class="logo">MA</div><div><h3>Créer ma carte</h3><div class="small">Personnalise ta carte publique</div></div></div>
+          <div><a href="dashboard.html" class="small">Mon tableau de bord</a></div>
+        </div>
+    
+        <div class="grid">
+          <div class="card">
+            <label>Titre<input id="card_title" class="input" placeholder="Bienvenue sur ma carte"></label>
+            <label>Texte principal<textarea id="card_text" class="input" rows="4">Salut — envoie-moi un message anonyme !</textarea></label>
+    
+            <div style="margin-top:12px">
+              <div class="small">Choisir palette</div>
+              <div class="palette">
+                <div class="swatch selected" data-color="linear-gradient(90deg,#5b6cff,#8b9bff)" style="background:linear-gradient(90deg,#5b6cff,#8b9bff)"></div>
+                <div class="swatch" data-color="linear-gradient(90deg,#ff7a7a,#ffb199)" style="background:linear-gradient(90deg,#ff7a7a,#ffb199)"></div>
+                <div class="swatch" data-color="#222831" style="background:#222831"></div>
+                <div class="swatch" data-color="#58d68d" style="background:#58d68d"></div>
+              </div>
+            </div>
+    
+            <label style="margin-top:12px">Liens réseaux (json simplifié)
+              <textarea id="card_links" class="input" rows="3">[{ "type":"instagram", "url":"https://instagram.com/toncompte" }]</textarea>
+            </label>
+    
+            <div style="margin-top:12px; display:flex; gap:8px">
+              <button class="btn" id="generate_image">Générer l'image de la carte</button>
+              <a id="download_image" style="display:none" class="btn" href="#">Télécharger</a>
+            </div>
+    
+            <div style="margin-top:12px"><small class="small">Aperçu</small>
+              <div id="card_preview" class="preview" style="margin-top:8px"></div>
+            </div>
+          </div>
+    
+          <div class="card">
+            <h4>URL publique</h4>
+            <div class="small">Après sauvegarde, tu auras une URL du type :</div>
+            <pre style="background:#f7f8ff;padding:10px;border-radius:8px">https://tonsite.com/u/tonpseudo</pre>
+            <div style="margin-top:10px">
+              <label>Slug public<input class="input" placeholder="tonpseudo"></label>
+              <button class="btn" style="margin-top:8px">Enregistrer</button>
+            </div>
+    
+            <div style="margin-top:18px">
+              <h4>Image générée</h4>
+              <img id="generated_img" src="" style="display:none; width:100%; border-radius:10px" />
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <script src="js/app.js"></script>
+      <script> initCardEditor(); </script>
+    </body></html>
+    
